@@ -4,7 +4,7 @@ import {MdOutlineWbSunny} from "react-icons/md"
 import {AiOutlineStar} from "react-icons/ai"
 import {BiCalendar} from "react-icons/bi"
 
-const Planned = () => {
+const AnotherDay = () => {
  
 	return (
 		<>
@@ -16,7 +16,7 @@ const Planned = () => {
 								{" "}
 								<MdOutlineWbSunny />{" "}
 							</IconHold>
-							<h3>planned</h3>
+							<h3>MyDay</h3>
 						</Main>
 
 						<span>Sunday, January 15</span>
@@ -81,7 +81,7 @@ const Planned = () => {
 	);
 }
 
-export default Planned
+export default AnotherDay
 
 const DatePicker = styled.div`
 	position: absolute;
@@ -214,7 +214,7 @@ const Hold = styled.div`
 `;
 
 const Container = styled.div`
-	min-width: calc(100vw - 230px);
+	min-width: calc(100vw - 300px);
 	min-height: calc(100vh - 50px);
 
 	display: flex;
@@ -223,7 +223,7 @@ const Container = styled.div`
 	align-items: center;
 	flex-direction: column;
 	background-color: #faf9f8;
-    margin-left: 230px;
+    margin-left: 300px;
 
 	/* flex-direction: column; */
 `;

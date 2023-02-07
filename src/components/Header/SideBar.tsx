@@ -1,6 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import {MdOutlineWbSunny} from 'react-icons/md'
+import {AiOutlineStar} from "react-icons/ai"
+import {BiCalendar} from "react-icons/bi"
+import {FaRegUser } from "react-icons/fa"
+import {FiHome } from "react-icons/fi"
 
 const SideBar = () => {
   return (
@@ -8,28 +13,104 @@ const SideBar = () => {
         <Container>
             <Wrapper>
 <Icon>
-    =
+<h4>menu</h4>
 </Icon>
 
 <NavHold>
     <Navs>
-        <P  to = "/task/myday">My Day</P>
+   
+   <IconHld>
+   <MdOutlineWbSunny />
+   </IconHld>
+        <P  to = "/task/myday" style={({ isActive }) => {
+							return {
+								color: isActive ? "blue" : "black",
+								textDecoration: isActive ? "none" : " none",
+								background: isActive ? "#e3f7fe" : " none",
+								height: "50px",
+
+								borderLeft: isActive ? "4px solid #1DA1F2" : "none",
+								display: isActive ? "flex" : "flex",
+								marginTop: isActive ? "8px" : "8px",
+							};
+						}}>My Day</P>
     </Navs>
     <Navs >
-        <P to = "/task/important">Important</P>
+    <IconHld>
+    <AiOutlineStar />
+    </IconHld>
+    
+        <P  to = "/task/important" style={({ isActive }) => {
+							return {
+								color: isActive ? "black" : "black",
+								textDecoration: isActive ? "none" : " none",
+								background: isActive ? "#e3f7fe" : " none",
+								height: "50px",
+
+								borderLeft: isActive ? "4px solid #1DA1F2" : "none",
+								display: isActive ? "flex" : "flex",
+								marginTop: isActive ? "8px" : "8px",
+							};
+						}}>Important</P>
     </Navs>
     <Navs>
-        <P  to = "/task/planned">Planned</P>
+    <IconHld>
+    <BiCalendar />
+    </IconHld>
+  
+        <P  to = "/task/planned" style={({ isActive }) => {
+							return {
+								color: isActive ? "black" : "black",
+								textDecoration: isActive ? "none" : " none",
+								background: isActive ? "#e3f7fe" : " none",
+								height: "50px",
+
+								borderLeft: isActive ? "4px solid #1DA1F2" : "none",
+								display: isActive ? "flex" : "flex",
+								marginTop: isActive ? "8px" : "8px",
+							};
+						}}>Planned</P>
     </Navs>
     <Navs >
-        <P to = "/task/assigned">Assigned to me</P>
+    <IconHld>
+    <FaRegUser />
+    </IconHld>
+    
+        <P to = "/task/assigned" style={({ isActive }) => {
+							return {
+								color: isActive ? "black" : "black",
+								textDecoration: isActive ? "none" : " none",
+								background: isActive ? "#e3f7fe" : " none",
+								height: "50px",
+
+								borderLeft: isActive ? "4px solid #1DA1F2" : "none",
+								display: isActive ? "flex" : "flex",
+								marginTop: isActive ? "8px" : "8px",
+							};
+						}}>Assigned to me</P>
     </Navs>
     <Navs >
-        <P to = "/task/tasks">Tasks</P>
+    <IconHld>
+    <FiHome />
+    </IconHld>
+    
+        <P to = "/task/tasks" style={({ isActive }) => {
+							return {
+								color: isActive ? "black" : "black",
+								textDecoration: isActive ? "none" : " none",
+								background: isActive ? "#e3f7fe" : " none",
+								height: "50px",
+
+								borderLeft: isActive ? "4px solid #1DA1F2" : "none",
+								display: isActive ? "flex" : "flex",
+								marginTop: isActive ? "8px" : "8px",
+							};
+						}}>Tasks</P>
     </Navs>
    
 </NavHold>
 <hr />
+{/* <br /> */}
 
 <List>
     <Icn>+</Icn>
@@ -44,6 +125,14 @@ const SideBar = () => {
 
 export default SideBar
 
+const IconHld = styled.div`
+font-size: 20px;
+margin-left: 20px;
+margin-right: 10px;
+color: #222222c8;
+font-weight: lighter;
+`
+
 const P = styled(NavLink)`
     text-decoration: none;
     color: black;
@@ -56,13 +145,21 @@ font-size: 20px;
 margin-bottom: 10px;
 `
 
-const Icn = styled.div``
+const Icn = styled.div`
+color: blue;
+font-size: 20px;
+`
 
 const List = styled.div`
 display: flex;
 width: 100%;
 justify-content: space-between;
 align-items: center;
+
+p{
+    font-size: 20px;
+    color: blue;
+}
 `
 
 const Navs = styled.div`
@@ -72,7 +169,8 @@ align-items: center;
 
 
 
-width: 300px;
+
+width: 230px;
 height: 50px;
 background-color: #ffff;
 text-align: left;
@@ -93,9 +191,11 @@ height: 100%;
 `
 
 const Container = styled.div`
-width: 300px;
+width: 230px;
 /* margin-left: 20px; */
-height: calc(100vh - 50px);
+/* margin-top: 50px; */
+/* height: calc(100vh - 50px); */
+height: 100vh;
 /* background-color: red; */
 position: fixed;
 
