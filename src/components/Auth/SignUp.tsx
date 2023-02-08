@@ -1,12 +1,34 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import pic from "../assests/logo.svg"
+
+import axios from "axios"
+import { GlobalContext } from '../Global/GlobalData'
+
 
 const SignUp = () => {
+// const {userData , setuserData} = useContext(GlobalContext)
+const navigate = useNavigate()
+    const [name , setName] =useState("")
+    const [email , setEmail ] = useState("")
+    const [password, setPassword ] = useState("")
+
+    const postData = async(e:any) =>{
+        e.preventDefault()
+        await axios.post(`http://localhost:4000/api/signup` , {
+            name , email , password
+        }).then((res)=>{
+            console.log(res)
+            window.localStorage.setItem("userData", JSON.stringify(res.data.data));
+            navigate("/signin")
+        })
+        
+    }
+	// console.log("this is the current user", currentUser);
+
   return (
     <div>
-        <Container>
+        <Container onSubmit={postData}>
             <Wrapper>
                 <Logo>
                     {/* <img src={pic} alt="logo" /> */}
@@ -15,20 +37,35 @@ const SignUp = () => {
             
             
 <InputHold>
-<input type="text" placeholder="someone@gmail.com" />
+<input value={name} onChange={(e) =>{
+    setName(e.target.value)
+}} type="text" placeholder='Enter your name' />
+
+
+<input value={email} onChange={(e) =>{
+    setEmail(e.target.value)
+}} type="text" placeholder="someone@gmail.com" />
+
+
+<input value={password} onChange={(e) =>{
+    setPassword(e.target.value)
+}} type="text" placeholder='Enter password' />
+
+
 </InputHold>
-<Text><p>No account ? <Span to = "/signup">Create one</Span></p>
+<Text><p>have an account ? <Span to = "/signin">sign in</Span></p>
 <a href="">sign up with phone number?</a>
 </Text>
 <ButtonHold>
   
-    <Button to = "/signin">Next</Button>
+    <Button type='submit'>Next</Button>
 </ButtonHold>
             </Wrapper>
         </Container>
     </div>
   )
 }
+
 
 export default SignUp
 
@@ -37,20 +74,7 @@ font-size: 30px;
 font-weight: 400;
 `
 
-const Button1 = styled.div`
-    color: black;
-text-decoration: none;
-display: flex;
-justify-content: center;
-align-items: center;
-    width: 150px;
-    height: 50px;
-    font-size: 17px;
 
-    font-weight: 400;
-    background-color: lightgray ;
-    cursor: pointer;
-`
 
 const Logo = styled.div`
     
@@ -72,7 +96,7 @@ const Span = styled(Link)`
     }
 `
 
-const Button = styled(Link)`
+const Button = styled.button`
 color: white;
 text-decoration: none;
 display: flex;
@@ -127,7 +151,11 @@ span{
 `
 
 const InputHold = styled.div`
-
+width: 100%;
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+flex-direction: column;
 
 input{
     width: 300px;
@@ -142,7 +170,7 @@ input{
 
 const Wrapper = styled.div`
     width: 400px;
-    height: 300px;
+    height: 400px;
     background-color: white;
     box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.05);
     display: flex;
@@ -155,7 +183,7 @@ const Wrapper = styled.div`
    
 `
 
-const Container = styled.div`
+const Container = styled.form`
 width: 100%;
 height: 100vh;
 /* background-color: #123456; */

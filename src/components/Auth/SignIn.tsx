@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import pic from "../assests/logo.svg"
 
 const SignIn = () => {
+    const [email , setEmail] = React.useState("")
+
   return (
     <div>
         <Container>
@@ -15,14 +17,16 @@ const SignIn = () => {
             
             
 <InputHold>
-<input type="text" placeholder="Email , phone , Skype" />
+<input value={email} onChange={(e)=>{
+    setEmail(e.target.value)
+}} type="text" placeholder="Email , phone , Skype" />
 </InputHold>
-<Text><Span to = "/signup">use a phone number instead</Span>
-<a href="">get a new email ??</a>
+<Text><p>No account ? <Span to = "/signup">Create one</Span></p>
+<a href="">Can't access your account ??</a>
 </Text>
 <ButtonHold>
     <Button1>Back</Button1>
-    <Button to = "/task/today">Next</Button>
+    <Button to = "/task">Next</Button>
 </ButtonHold>
             </Wrapper>
         </Container>
