@@ -126,17 +126,19 @@ const SideBar = () => {
 export default SideBar
 
 const IconHld = styled.div`
-font-size: 20px;
+font-size: 15px;
 margin-left: 20px;
 margin-right: 10px;
-color: #222222c8;
+color: #000000b0;
 font-weight: lighter;
 `
 
 const P = styled(NavLink)`
     text-decoration: none;
-    color: black;
-    font-weight: 500;
+    color: #000000dc;
+    /* color: red; */
+    font-size: 14px;
+    /* font-weight: 400; */
 `
 
 const Icon = styled.div`
@@ -163,7 +165,7 @@ p{
 `
 
 const Navs = styled.div`
-margin-bottom: 10px;
+/* margin-bottom: 10px; */
 display: flex;
 align-items: center;
 
@@ -176,7 +178,7 @@ background-color: #ffff;
 text-align: left;
 
 :hover{
-    background-color: darkgrey;
+    background-color: lightgray;
 }
 
 `
@@ -199,5 +201,5 @@ height: 100vh;
 /* background-color: red; */
 position: fixed;
 
-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.05);
 `

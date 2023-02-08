@@ -19,7 +19,9 @@ const MyDay = () => {
 							<h3>MyDay</h3>
 						</Main>
 
-						<span>Sunday, January 15</span>
+					<TextHld>
+          <span>Sunday, January 15</span>
+          </TextHld>
 					</Hold>
 					<br />
 
@@ -82,6 +84,13 @@ const MyDay = () => {
 }
 
 export default MyDay
+
+const TextHld = styled.div`
+  display: flex;
+  width: calc(100% - 300px);
+  justify-content: flex-start;
+  align-items: flex-start;
+`
 
 const DatePicker = styled.div`
 	position: absolute;
@@ -163,7 +172,7 @@ const InputHold = styled.div`
 	display: flex;
 	align-items: center;
 	border-radius: 5px 5px 0px 0px;
-	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 `;
 
 const Input2 = styled.input`

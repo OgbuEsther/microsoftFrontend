@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {MdOutlineWbSunny} from "react-icons/md"
 import {AiOutlineStar} from "react-icons/ai"
 import {BiCalendar} from "react-icons/bi"
-
+import {FiHome} from "react-icons/fi"
 const Tasks = () => {
  
 	return (
@@ -14,12 +14,13 @@ const Tasks = () => {
 						<Main>
 							<IconHold>
 								{" "}
-								<MdOutlineWbSunny />{" "}
+								<FiHome />{" "}
 							</IconHold>
 							<h3>Tasks</h3>
 						</Main>
-
-						<span>Sunday, January 15</span>
+            <TextHld>
+          <span>Sunday, January 15</span>
+          </TextHld>
 					</Hold>
 					<br />
 
@@ -82,6 +83,14 @@ const Tasks = () => {
 }
 
 export default Tasks
+
+
+const TextHld = styled.div`
+  display: flex;
+  width: calc(100% - 300px);
+  justify-content: flex-start;
+  align-items: flex-start;
+`
 
 const DatePicker = styled.div`
 	position: absolute;

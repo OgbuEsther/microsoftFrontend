@@ -67,7 +67,7 @@ const DetailsComp = () => {
 					<IconHold>
 						<AiOutlineBell />
 					</IconHold>
-					<span>Remaind Me</span>
+					<span>Remind Me</span>
 				</Card>
 				<Card>
 					<IconHold>
@@ -124,7 +124,8 @@ const Container = styled.div`
 	
 	background-color: white;
 	width: 280px;
-	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.05);
   position: absolute;
   right: 0;
   top: 10px;
@@ -142,7 +143,8 @@ const UserAssignCard = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.05);
 
 	button {
 		background-color: #8a8aff;
