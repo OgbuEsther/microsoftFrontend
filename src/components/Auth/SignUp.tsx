@@ -105,6 +105,7 @@ a{
     font-weight: 600;
     cursor: pointer;
     margin-bottom: 10px;
+    text-decoration: none;
 
 
     :hover{
@@ -140,10 +141,10 @@ input{
 `
 
 const Wrapper = styled.div`
-    width: 450px;
-    /* height: 300px; */
+    width: 400px;
+    height: 300px;
     background-color: white;
-    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.05);
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -157,7 +158,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
 width: 100%;
 height: 100vh;
-background-color: #123456;
+/* background-color: #123456; */
 display: flex;
 justify-content: center;
 align-items: center;

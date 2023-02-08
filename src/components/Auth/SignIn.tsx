@@ -17,8 +17,8 @@ const SignIn = () => {
 <InputHold>
 <input type="text" placeholder="Email , phone , Skype" />
 </InputHold>
-<Text><p>No account ? <Span to = "/signup">Create one</Span></p>
-<a href="">Can't access your account ??</a>
+<Text><Span to = "/signup">use a phone number instead</Span>
+<a href="">get a new email ??</a>
 </Text>
 <ButtonHold>
     <Button1>Back</Button1>
@@ -105,6 +105,7 @@ a{
     font-weight: 600;
     cursor: pointer;
     margin-bottom: 10px;
+    text-decoration: none;
 
 
     :hover{
@@ -140,8 +141,8 @@ input{
 `
 
 const Wrapper = styled.div`
-    width: 450px;
-    /* height: 300px; */
+    width: 400px;
+    height: 300px;
     background-color: white;
     box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
     display: flex;
@@ -155,9 +156,9 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-width: 100%;
+   width: 100%;
 height: 100vh;
-background-color: #123456;
+/* background-color: #123456; */
 display: flex;
 justify-content: center;
 align-items: center;
