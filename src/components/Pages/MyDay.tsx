@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
 import {MdOutlineWbSunny} from "react-icons/md"
 import {AiOutlineStar} from "react-icons/ai"
-import {BiCalendar} from "react-icons/bi"
+import { BiCalendar } from "react-icons/bi"
+import axios from "axios"
+import { GlobalContext } from '../Global/GlobalData';
 
 const MyDay = () => {
+	// const {userData , setUserdata} = useContext(GlobalContext)
+
+
+	// const getData = async () => { 
+	// 	await axios.get(`http://localhost:4000/api/task/getalltasks/${}`)
+	// }
+
+
  
 	return (
 		<>

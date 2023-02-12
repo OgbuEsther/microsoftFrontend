@@ -26,7 +26,7 @@ function App() {
       </header> */}
       <Header />
       <Allroutes />
-    <Details />
+    {/* <Details /> */}
     </div>
   );
 }
