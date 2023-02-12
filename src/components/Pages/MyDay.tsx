@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components';
 import {MdOutlineWbSunny} from "react-icons/md"
 import {AiOutlineStar} from "react-icons/ai"
@@ -7,14 +7,23 @@ import axios from "axios"
 import { GlobalContext } from '../Global/GlobalData';
 
 const MyDay = () => {
-	// const {userData , setUserdata} = useContext(GlobalContext)
+	const {userData } = useContext(GlobalContext)
+const [currentUser , setCurrentUser] = useState({} as user)
 
+	const addtask = async () => { 
+		await axios.post(`http://localhost:4000/api/task/newtask/${}`)
+	}
 
-	// const getData = async () => { 
-	// 	await axios.get(`http://localhost:4000/api/task/getalltasks/${}`)
-	// }
-
-
+/**const createMyDay = async () => {
+		await axios
+			.post(`http://localhost:5000/api/task/createTask/${currentUser?._id}`, {
+				title,
+				date: caledar.toDateString(),
+			})
+			.then((res) => {
+				console.log(res);
+			});
+	}; */
  
 	return (
 		<>
