@@ -4,26 +4,25 @@ import {MdOutlineWbSunny} from "react-icons/md"
 import {AiOutlineStar} from "react-icons/ai"
 import { BiCalendar } from "react-icons/bi"
 import axios from "axios"
-import { GlobalContext } from '../Global/GlobalData';
+import { GlobalContext, user } from '../Global/GlobalData';
 
 const MyDay = () => {
 	const {userData } = useContext(GlobalContext)
-const [currentUser , setCurrentUser] = useState({} as user)
+	const [currentUser, setCurrentUser] = useState({} as user)
+	const [title, setTitle] = useState("")
+	const [date, setDate] = useState("")
+	const [calender , setCalender] = useState(new Date().toDateString())
 
 	const addtask = async () => { 
-		await axios.post(`http://localhost:4000/api/task/newtask/${}`)
+		await axios.post(`http://localhost:4000/api/task/newtask/${userData._id}`, {
+			title,
+			date : calender
+		}).then((res) => {
+			console.log(res)
+		})
 	}
 
-/**const createMyDay = async () => {
-		await axios
-			.post(`http://localhost:5000/api/task/createTask/${currentUser?._id}`, {
-				title,
-				date: caledar.toDateString(),
-			})
-			.then((res) => {
-				console.log(res);
-			});
-	}; */
+
  
 	return (
 		<>
@@ -47,7 +46,9 @@ const [currentUser , setCurrentUser] = useState({} as user)
 					<InputHold>
 						<Input2 type='radio' />
 						<Input
-						
+							onChange={(e) => {
+								setTitle(e.target.value)
+						}}
 							placeholder='Add Task'
 						/>
 					</InputHold>
@@ -56,12 +57,13 @@ const [currentUser , setCurrentUser] = useState({} as user)
 							<BiCalendar />
 						</First>
 						
-							<Button >Add</Button>
-					
+							{title !== "" ? (
+							<Button onClick={addtask}>Add</Button>
+						) : (
 							<Button disabled style={{ cursor: "not-allowed" }}>
 								Add
 							</Button>
-					
+						)}
 
 					
 							<DatePicker>
