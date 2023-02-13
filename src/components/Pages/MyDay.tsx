@@ -4,25 +4,66 @@ import {MdOutlineWbSunny} from "react-icons/md"
 import {AiOutlineStar} from "react-icons/ai"
 import { BiCalendar } from "react-icons/bi"
 import axios from "axios"
-import { GlobalContext, user } from '../Global/GlobalData';
+
+import { GlobalContext } from '../Global/GlobalData';
+import Swal from 'sweetalert2';
+
+
+type TaskData = {
+	_id: string;
+	status: boolean;
+	remainder: string;
+	date: string;
+	title: string;
+	note: string;
+	reciever: string;
+};
+
+interface User {
+	name: string;
+	email: string;
+	_id: string;
+	task: any[];
+	myDay: TaskData[];
+}
 
 const MyDay = () => {
 	const {userData } = useContext(GlobalContext)
-	const [currentUser, setCurrentUser] = useState({} as user)
+	const [currentUser, setCurrentUser] = useState({} as User)
 	const [title, setTitle] = useState("")
-	const [date, setDate] = useState("")
+	// const [date, setDate] = useState("")
 	const [calender , setCalender] = useState(new Date().toDateString())
 
 	const addtask = async () => { 
-		await axios.post(`http://localhost:4000/api/task/newtask/${userData._id}`, {
+		await axios.post(`http://localhost:4000/api/task/newtask/${userData?._id}`, {
 			title,
 			date : calender
 		}).then((res) => {
-			console.log(res)
+	
+			 Swal.fire({
+            icon: "success",
+            title: "Successfully added a task",
+        
+				 timer: 3000,
+			
+			 });
+			window.location.reload()
 		})
 	}
 
+	const getUser = async () => {
+		await axios
+			.get(`http://localhost:4000/api/getOne/${userData?._id}`)
+			.then((res) => {
+		
+				setCurrentUser(res.data.data);
+					
+			});
+	};
 
+	React.useEffect(() => {
+		getUser();
+	},[userData]);
  
 	return (
 		<>
@@ -72,22 +113,23 @@ const MyDay = () => {
 				
 					</Down>
 					<br />
-				
-						<InputHold2>
+					{currentUser?.myDay?.map((props) => (
+					<InputHold2 key = {props._id}>
 							<Hol>
 								<Input2
-									checked
+								
 								
 									type='radio'
 								/>
 								<TitleHold>
 									<Title>
-									
+									{props.title}
 									</Title>
 									<Sub>
-										<BiCalendar/>
-										{/* {props.date} */}
-										Due 
+										<BiCalendar />
+											Due : 
+										{props.date}
+									
 									</Sub>
 								</TitleHold>
 							</Hol>
@@ -97,6 +139,9 @@ const MyDay = () => {
 							</span>
 
 						</InputHold2>
+				  ))}
+				
+						
 			
 				</Cont>
 			</Container>
@@ -245,14 +290,14 @@ const Hold = styled.div`
 
 const Container = styled.div`
 	min-width: calc(100vw - 230px);
-	min-height: calc(100vh - 50px);
+	min-height: calc(100vh);
 
 	display: flex;
 	overflow: hidden;
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
-	background-color: #faf9f8;
+	background-color: #f0f8ff1c;
     margin-left: 230px;
 /* position: relative; */
 	/* flex-direction: column; */
