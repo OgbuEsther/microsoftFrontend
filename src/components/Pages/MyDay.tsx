@@ -61,6 +61,23 @@ const MyDay = () => {
 			});
 	};
 
+
+
+		const updatingStatus = async (id: string) => {
+		await axios
+			.patch(
+				`http://localhost:5000/api/task/completeTask/${userData?._id}/${id}`,
+			)
+			.then(() => {
+			
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000);
+			});
+
+		// window.location.reload();
+	};
+
 	React.useEffect(() => {
 		getUser();
 	},[userData]);
