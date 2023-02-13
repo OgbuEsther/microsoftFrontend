@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components';
-import {MdOutlineWbSunny} from "react-icons/md"
 import {AiOutlineStar} from "react-icons/ai"
 import {BiCalendar} from "react-icons/bi"
 import {FiHome} from "react-icons/fi"
@@ -24,9 +23,6 @@ interface User {
 	task: TaskData[];
 	myDay: TaskData[];
 }
-
-
-
 
 
 
@@ -60,6 +56,10 @@ const Tasks = () => {
 		
 			setCurrentUser(res.data.data)
 		})
+	}
+
+	const updateTask = async () => { 
+		await axios
 	}
 
 	useEffect(() => {
@@ -275,7 +275,7 @@ const Cont = styled.div`
 	padding-left: 100px;
 	flex-direction: column;
 	margin-top: 70px;
-	/* background-color: red; */
+
 	flex: 1;
 `;
 const Hold = styled.div`
@@ -293,15 +293,14 @@ const Hold = styled.div`
 
 const Container = styled.div`
 	min-width: calc(100vw - 230px);
-	min-height: calc(100vh - 50px);
+	min-height: calc(100vh);
 
 	display: flex;
 	overflow: hidden;
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
-	background-color: #faf9f8;
+background-color: #f0f8ff1c;
     margin-left: 230px;
 
-	/* flex-direction: column; */
 `;
