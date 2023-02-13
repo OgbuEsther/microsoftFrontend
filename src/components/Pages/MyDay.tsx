@@ -63,7 +63,7 @@ const MyDay = () => {
 
 
 
-		const updatingStatus = async (id: string) => {
+		const taskUpdateTrue = async (id: string) => {
 		await axios
 			.patch(
 				`http://localhost:5000/api/task/completeTask/${userData?._id}/${id}`,
@@ -76,6 +76,16 @@ const MyDay = () => {
 			});
 
 		// window.location.reload();
+	};
+
+		const taskUpdatefalse = async (id: string) => {
+		await axios
+			.patch(
+				`http://localhost:5000/api/task/uncompleteTask/${userData?._id}/${id}`,
+			)
+			.then(() => {
+				window.location.reload();
+			});
 	};
 
 	React.useEffect(() => {
