@@ -69,10 +69,19 @@ const MyDay = () => {
 				`http://localhost:4000/api/task/completeTask/${userData?._id}/${id}`,
 			)
 			.then(() => {
+					console.log("task completed") 
 			
-				setTimeout(() => {
-					window.location.reload();
-				}, 1000);
+				// setTimeout(() => {
+				// 	window.location.reload();
+				// }, 1000);
+				
+			 Swal.fire({
+            icon: "success",
+            title: "task successfully completed",
+        
+				 timer: 3000,
+			
+			 });
 			});
 
 	
@@ -84,7 +93,8 @@ const MyDay = () => {
 				`http://localhost:4000/api/task/uncompleteTask/${userData?._id}/${id}`,
 			)
 			.then(() => {
-				window.location.reload();
+			
+				console.log("task uncompleted") 
 			});
 	};
 
@@ -144,7 +154,15 @@ const MyDay = () => {
 					<InputHold2 key = {props._id}>
 							<Hol>
 								<Input2
-								
+									checked={props.status}
+									onClick={() => {
+										if (props.status ) {
+											taskUpdateTrue(props._id)
+										} else {
+											taskUpdatefalse(props._id)
+                                        }
+										
+									}}
 								
 									type='radio'
 								/>

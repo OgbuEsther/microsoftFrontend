@@ -118,7 +118,7 @@ const Tasks = () => {
 						<InputHold2>
 							<Hol>
 								<Input2
-									checked
+									
 								
 									type='radio'
 								/>
