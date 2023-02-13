@@ -42,7 +42,7 @@ const Tasks = () => {
 			title,
 			date
 		}).then((res) => {
-			console.log(`this is task`, res)
+		
 			 Swal.fire({
             icon: "success",
             title: "Successfully added a task",
@@ -50,14 +50,14 @@ const Tasks = () => {
 				 timer: 3000,
 			
 			 });
-			// window.location.reload()
+			window.location.reload()
 		})
 	}
 
 
 	const getUserId = async () => {
 		await axios.get(`http://localhost:4000/api/getOne/${userData?._id}`).then((res) => {
-			console.log("this is user res", res)
+		
 			setCurrentUser(res.data.data)
 		})
 	}
