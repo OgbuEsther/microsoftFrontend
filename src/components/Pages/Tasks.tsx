@@ -58,9 +58,7 @@ const Tasks = () => {
 		})
 	}
 
-	const updateTask = async () => { 
-		await axios
-	}
+
 
 	useEffect(() => {
 	getUserId()
