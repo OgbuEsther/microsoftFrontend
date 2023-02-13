@@ -72,8 +72,8 @@ const MyDay = () => {
 					<Hold>
 						<Main>
 							<IconHold>
-								{" "}
-								<MdOutlineWbSunny />{" "}
+							
+								<MdOutlineWbSunny />
 							</IconHold>
 							<h3>MyDay</h3>
 						</Main>
