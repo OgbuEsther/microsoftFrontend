@@ -55,16 +55,16 @@ const Tasks = () => {
 	}
 
 
-// 	const getUserId = async () => {
-// 		await axios.get(`http://localhost:4000/api/getOne/${userData?._id}`).then((res) => {
-// 			console.log("this is user res", res)
-// 			setCurrentUser(res.data.data)
-// 		})
-// 	}
+	const getUserId = async () => {
+		await axios.get(`http://localhost:4000/api/getOne/${userData?._id}`).then((res) => {
+			console.log("this is user res", res)
+			setCurrentUser(res.data.data)
+		})
+	}
 
-// 	useEffect(() => {
-// 	getUserId()
-// } , [userData])
+	useEffect(() => {
+	getUserId()
+} , [userData])
 
 	return (
 		<>
