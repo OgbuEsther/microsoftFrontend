@@ -42,7 +42,7 @@ const Header = () => {
               <AiOutlineNotification />
             </Icons>
             <Icons>
-              <Circle>T</Circle>
+              <Circle>{userData?.email.charAt(0).toUpperCase()} </Circle>
             </Icons>
           </IconHold>
         </DivOne>
