@@ -97,6 +97,16 @@ const MyDay = () => {
 				console.log("task uncompleted") 
 			});
 	};
+		const taskUpdatefalse1 = async (id: string) => {
+		await axios
+			.patch(
+				`http://localhost:4000/api/task/uncompleteTask/${userData?._id}/${id}`,
+			)
+			.then(() => {
+			
+				console.log("task uncompleted") 
+			});
+	};
 
 	React.useEffect(() => {
 		getUser();
